@@ -1,0 +1,117 @@
+// ---------------------------------------------------------===
+// Forms
+// ---------------------------------------------------------===
+
+form,
+fieldset {
+  margin: 0;
+  padding: 0;
+  border-style: none;
+}
+
+label {
+  font-weight: 600;
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: 3px;
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='search'],
+input[type='password'],
+input[type='url'],
+input[type='date'],
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: $form-element-border-radius;
+  border-radius: $form-element-border-radius;
+  box-sizing: border-box;
+  border: 2px solid $form-element-border-color;
+  padding: $form-element-padding;
+  background-color: $form-element-background-color;
+  color: $form-element-color;
+  font-weight: $form-element-font-weight;
+  font-size: $form-element-font-size;
+  line-height: $form-element-line-height;
+  width: 100%;
+  @include animate(border-color);
+
+  &:hover,
+  &:focus {
+    border-color: $form-element-focus-border-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @include placeholder {
+    color: $form-element-placeholder-color;
+  }
+}
+
+select {
+  -webkit-border-radius: $form-element-border-radius;
+  border-radius: $form-element-border-radius;
+  box-sizing: border-box;
+  border: 2px solid $form-element-border-color;
+  padding: $form-element-padding;
+  background-color: $form-element-background-color;
+  color: $form-element-placeholder-color;
+  font-weight: $form-element-font-weight;
+  font-size: $form-element-font-size;
+  line-height: $form-element-line-height;
+  width: 100%;
+  @include animate(border-color);
+
+  &:hover,
+  &:focus {
+    border-color: $form-element-focus-border-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+textarea {
+  resize: vertical;
+  vertical-align: top;
+  min-height: 26.2rem;
+}
+
+button,
+input[type='button'],
+input[type='reset'],
+input[type='file'],
+input[type='submit'] {
+  -webkit-appearance: none;
+  -webkit-border-radius: $form-element-border-radius;
+  cursor: pointer;
+}
+
+.button,
+button:not(.default-style),
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  display: inline-block;
+  vertical-align: top;
+  padding: $button-padding;
+  @include font($button-font-size, $button-line-height, $button-font-weight);
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: $button-background-color;
+  color: $button-color;
+  border: none;
+  border-radius: $button-border-radious;
+  @include animate(background-color);
+
+  &:hover,
+  &:focus {
+    background-color: darken($primary-color, 15);
+  }
+}
