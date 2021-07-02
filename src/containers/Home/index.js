@@ -6,9 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUserList } from './actions';
 
 // Components
-
-// Helper functions
-import { sanitisePhoneNumber } from '../../utils/helperFunctions';
+import Spinner from '../../components/Spinner/index';
+import UserCard from '../../components/UserCard/index';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -30,32 +29,10 @@ const Home = () => {
       <div className="container">
         <h1 style={{ color: 'white' }}>User List</h1>
         <div className="row">
-          {getUserListRequesting && <h2>Loading...</h2>}
+          {getUserListRequesting && <Spinner />}
           {getUserListResponse?.[0] &&
             getUserListResponse.map((user) => (
-              <div className="col-sm-4" key={user.id}>
-                <div className="profile">
-                  <div className="image"></div>
-                  <h5>{user.name}</h5>
-                  <p className="username">@{user.username}</p>
-                  <p>
-                    Phone:{' '}
-                    <a href={`tel:${sanitisePhoneNumber(user.phone)}`}>
-                      {sanitisePhoneNumber(user.phone)}
-                    </a>
-                  </p>
-                  <p>
-                    Website:{' '}
-                    <a
-                      href={`https://${user.website}`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {user.website}
-                    </a>
-                  </p>
-                </div>
-              </div>
+              <UserCard key={user.id} user={user} />
             ))}
           {!!getUserListError && <h1>Error!!</h1>}
         </div>
