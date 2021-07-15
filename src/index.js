@@ -9,7 +9,7 @@ import store from './redux/store';
 import App from './App';
 
 // Styles
-import './assets/sass/main.scss';
+import './assets/styles/main.scss';
 
 const MOUNT_NODE = document.getElementById('root');
 
