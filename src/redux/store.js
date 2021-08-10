@@ -15,3 +15,22 @@ const store = compose(
 sagaMiddleware.run(rootSaga);
 
 export default store;
+
+/* To use redux dev tools with nextjs and typescript */
+
+// declare global {
+//   interface Window {
+//     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+//   }
+// }
+
+// const composeEnhancers =
+//   (typeof window !== 'undefined' &&
+//     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+//   compose;
+
+// const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
+
+// const store = createStore(rootReducer, enhancer);
+
+// sagaMiddleware.run(rootSaga);
